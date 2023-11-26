@@ -50,3 +50,5 @@ index.html
 
 files.publii.json
 
+## Issues
+This method does not update the left navigation for older posts. Those will be corrected during the next successful sync.
