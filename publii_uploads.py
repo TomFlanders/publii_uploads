@@ -6,12 +6,15 @@ import sys
 # UPDATE THIS BEFORE USING
 dbLoc = "C:\\Users\\tom\\Documents\\Publii\\sites\\tom-flanders-stuff\\input\\db.sqlite"
 
-#get number of days back
-back = sys.argv[1]
+try:
+    back = sys.argv[1]
+except:
+    back = 0
 
 #get date
 today = datetime.date.today()
-compTime = calendar.timegm(today.timetuple()) * 1000
+backDate = today - datetime.timedelta(days=int(back))
+compTime = calendar.timegm(backDate.timetuple()) * 1000
 
 #connect to database
 con = sqlite3.connect(dbLoc)
