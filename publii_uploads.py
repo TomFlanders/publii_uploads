@@ -22,12 +22,27 @@ cur = con.cursor()
 
 #list pages updated within range
 sql_query = 'select id,title from posts where modified_at > ' + str(compTime) + ';'
+
+result = cur.execute(sql_query)
+
+records = cur.fetchall() 
+rowCount = len(records) 
+if rowCount == 0: 
+    print("\nThere are no updates in specified time period\n")
+    exit() 
+
+sql_query = 'select title from posts where modified_at > ' + str(compTime) + ';'
+result = cur.execute(sql_query)
+
 print("\nUpload these files")
-for row in cur.execute(sql_query):
-    print(row[1])
+for row in result:
+    print(row[0])
+
+sql_query = 'select id from posts where modified_at > ' + str(compTime) + ';'
+result = cur.execute(sql_query)
 
 print("\nUpload these media folders")
-for row in cur.execute(sql_query):
+for row in result:
     print(row[0])
 
 #list tag folders updated within range
