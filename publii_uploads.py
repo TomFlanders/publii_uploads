@@ -20,17 +20,16 @@ compTime = calendar.timegm(backDate.timetuple()) * 1000
 con = sqlite3.connect(dbLoc)
 cur = con.cursor()
 
-#list pages updated within range
+#Check for no results
 sql_query = 'select id,title from posts where modified_at > ' + str(compTime) + ';'
-
 result = cur.execute(sql_query)
-
 records = cur.fetchall() 
 rowCount = len(records) 
 if rowCount == 0: 
     print("\nThere are no updates in specified time period\n")
     exit() 
 
+#list pages updated within range
 sql_query = 'select title from posts where modified_at > ' + str(compTime) + ';'
 result = cur.execute(sql_query)
 
@@ -38,6 +37,7 @@ print("\nUpload these files")
 for row in result:
     print(row[0])
 
+#list updated media folders
 sql_query = 'select id from posts where modified_at > ' + str(compTime) + ';'
 result = cur.execute(sql_query)
 
