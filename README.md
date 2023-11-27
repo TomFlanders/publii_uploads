@@ -14,6 +14,8 @@ type:
 
 git clone https://github.com/TomFlanders/publii_uploads
 
+Edit the file publii_uploads.py to specify the full path to your Publii database. This is in a site's input folder by default.
+
 ## usage
 cd to the publii_uploads folder
 
