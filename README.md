@@ -1,3 +1,6 @@
+### NOTE:
+Publii has changed how it monitors files. This program may now have now real purpose. I will update if another sync failure happens. (Add 12/2/2023)
+
 # publii_uploads
 List files to be uploaded if Publii sync fails
 
